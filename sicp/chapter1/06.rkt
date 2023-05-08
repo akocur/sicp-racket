@@ -2,7 +2,7 @@
 
 (#%require rackunit)
 
-(define (sqrt x) (sqrt-iter 1 x))
+(define (sqrt x) (sqrt-iter 1 x)) #|review: ignore|#
 
 (define (sqrt-iter guess x)
     (if-new (good-enough? guess x) ;даже когда good-enough? вернет #t третий параметр продолжит вычисляться.
