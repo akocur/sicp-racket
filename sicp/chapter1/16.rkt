@@ -3,13 +3,13 @@
 (#%require rackunit)
 
 (define (fast-expt b n)
-    (define (expt-iter b n a)
-        (cond ((= n 0) a)
-            ((even? n) (expt-iter b (/ n 2) (square a)))
-            (else (expt-iter b (- n 1) (* b a)))
+    (define (expt-iter p a)
+        (cond ((= p 0) a)
+            ((even? p) (expt-iter (/ p 2) (square a)))
+            (else (expt-iter (- p 1) (* b a)))
         )
     )
-    (expt-iter b n 1)
+    (expt-iter n 1)
 )
 
 (define (square x)
