@@ -2,14 +2,14 @@
 
 (#%require rackunit)
 
-(define (fast-expt b n)
-    (define (expt-iter p a)
-        (cond ((= p 0) a)
-            ((even? p) (expt-iter (/ p 2) (square a)))
-            (else (expt-iter (- p 1) (* b a)))
+(define (fast-expt base exp)
+    (define (expt-iter b e product)
+        (cond ((= e 0) product)
+            ((even? e) (expt-iter (square b) (/ e 2) product))
+            (else (expt-iter b (- e 1) (* b product)))
         )
     )
-    (expt-iter n 1)
+    (expt-iter base exp 1)
 )
 
 (define (square x)
@@ -20,5 +20,11 @@
     (= (remainder x 2) 0)
 )
 
+
+(check-equal? (fast-expt 2 0) 1)
+(check-equal? (fast-expt 2 1) 2)
+(check-equal? (fast-expt 2 2) 4)
 (check-equal? (fast-expt 2 3) 8)
-(check-equal? (fast-expt 5 0) 1)
+(check-equal? (fast-expt 2 4) 16)
+(check-equal? (fast-expt 2 5) 32)
+(check-equal? (fast-expt 2 8) 256)
