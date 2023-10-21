@@ -9,7 +9,7 @@
             (else (smallest-divisor-iter (next test-divisor)))
         )
     )
-    (define (next n) (if (= n 2) 3 (+ n 2)))
+    (define (next x) (if (= x 2) 3 (+ x 2)))
     (define (divides? a b) (= (remainder b a) 0))
 
     (smallest-divisor-iter 2)
