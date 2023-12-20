@@ -45,12 +45,12 @@
     (= (* (numer x1) (demon x2)) (* (numer x2) (demon x1)))
 )
 
-(define (print-rat x) 
+#| (define (print-rat x) 
     (newline)
     (display (numer x))
     (display "/")
     (display (demon x))
-)
+) |#
 
 (define one-half (make-rat 1 2))
 (define one-third (make-rat 1 3))

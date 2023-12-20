@@ -13,8 +13,8 @@
 (define (end-segment segment) (cdr segment))
 (define (midpoint-segment segment)
     (let (
-            (start-point (start-segment segment))
-            (end-point (end-segment segment))
+            [start-point (start-segment segment)]
+            [end-point (end-segment segment)]
         )
         (make-point
             (midle (x-point start-point) (x-point end-point))
