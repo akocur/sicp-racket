@@ -2,6 +2,8 @@
 
 (#%require rackunit)
 
+#|review: ignore|#
+
 (define (square a) (* a a))
 
 (define (fast-expt base exp)
