@@ -29,8 +29,17 @@
     (product-iter identity 1 inc n)
 )
 
+(define (square x) (* x x))
+
+(define (pi n)
+    (define (add-two x) (+ x 2))
+
+    (/ (* 2 (product-iter square 2 add-two n) (inc n)) (product-iter square 3 add-two n))
+)
+
 (check-equal? (factorial-via-recursion 5) 120)
 (check-equal? (factorial-via-recursion 0) 1)
 
 (check-equal? (factorial-via-iter 5) 120)
 (check-equal? (factorial-via-iter 0) 1)
+(check-equal? (/ (pi 7) 4) (/ (* 2 4 4 6 6 8 ) (* 3 3 5 5 7 7)))
